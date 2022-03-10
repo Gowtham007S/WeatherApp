@@ -7,20 +7,35 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 class LoginViewCell: UITableViewCell {
     
-    override initWithStyle(
- 
-    var imageView: UIImageView = {
-        let image = UIImageView()
-        image.init(frame: CGRect(x: 50, y: 50, width: 50, height: 50))
-        return image
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupTableViewCell()
     }
-    var cell: UITableViewCell = {
-        let cell = UITableViewCell()
-        cell.backgroundColor = .red
-        return cell
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+ 
+    var textView: UITextView = {
+        let textView = UITextView()
+        textView.backgroundColor = .blue
+        textView.frame = CGRect(x:50,y:50,width:40.0,height:50)
+        textView.textAlignment = .center
+        return textView
     }()
 
+    private func setupTableViewCell() {
+    self.addSubview(textView)
+        textView.snp.makeConstraints{ make in
+            make.bottom.equalToSuperview()
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+        }
+    
+    }
 }

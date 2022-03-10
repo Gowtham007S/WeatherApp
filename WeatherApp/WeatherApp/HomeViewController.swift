@@ -7,26 +7,13 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1000
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LoginViewCell", for: indexPath) as! CustomTableViewCell
-//            let cell = LoginViewCell()
-            cell.backgroundColor = .red
-            return cell
-        }()
-        cell.textLabel?.text = "Gowtham"
-        return cell
-    }
+class HomeViewController: UIViewController {
+   
     
     let loginView = LoginView()
     let viewModel: [String] = ["Login"]
     var router: UINavigationController
-    
+    let itemsInLoginScreen = ["Weather App", "NSE DATA", "Current Location", "Trending News","s", "s", "s"]
     init(navigationController: UINavigationController) {
         self.router = navigationController
         super.init(nibName: nil, bundle: nil)
@@ -38,21 +25,36 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         self.view = loginView
         self.loginView.loginTableView.register(UITableViewCell.self, forCellReuseIdentifier: "LoginViewCell")
         self.loginView.loginTableView.delegate = self
         self.loginView.loginTableView.dataSource = self
     }
     
-     func viewWillAppear() {
-//        router.pushViewController(loginView, animated: true)
-        super.viewWillAppear(true)
-//         self.view = loginView
-//        setUpTableView()
+    func viewWillAppear() {
     }
     
     private func setUpTableView() {
-//        router.pushViewController(loginView, animated: true)
+    }
+}
+
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itemsInLoginScreen.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        tableView.register(LoginViewCell.self, forCellReuseIdentifier: "DefaultCell")
+        let cell: UITableViewCell = {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath) as! LoginViewCell
+            cell.textView.backgroundColor = .gray
+            cell.textView.text = itemsInLoginScreen[indexPath.row]
+            return cell
+        }()
+        return cell
     }
 }
 

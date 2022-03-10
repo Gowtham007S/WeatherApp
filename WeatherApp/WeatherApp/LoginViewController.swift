@@ -13,7 +13,7 @@ class LoginViewController1: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        self.view.backgroundColor = .orange
+//        self.view.backgroundColor = .orange
         setUpContraints()
     }
     
@@ -29,7 +29,7 @@ class LoginViewController1: UIViewController {
  
     let loginTableView: UITableView = {
         let tableView = UITableView()
-            tableView.backgroundColor = UIColor.red
+//            tableView.backgroundColor = UIColor.red
 //            tableView.translatesAutoresizingMaskIntoConstraints = false
                return tableView
     }()
