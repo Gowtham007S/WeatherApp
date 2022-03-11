@@ -13,7 +13,7 @@ class LoginView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .white
+        self.backgroundColor = .systemBlue
         setUpContraints()
     }
     
@@ -21,22 +21,21 @@ class LoginView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
- 
     public lazy var appListContainer: UIStackView = {
         let appListContainer = UIStackView()
         appListContainer.axis = .vertical
         appListContainer.frame = CGRect(x: 50, y: 50, width: 100, height: 500)
-//        appListContainer.backgroundColor = .clear
+        appListContainer.backgroundColor = .systemBlue
         return appListContainer
     }()
     
     public lazy var appListTitle: UITextView = {
         let appListView = UITextView()
-//        appListView.backgroundColor = .cyan
-        appListView.font =  UIFont.systemFont(ofSize: 15)
-        appListView.textColor = .magenta
-        appListView.text = "LIST OF FEATURES WE PROVIDE"
+        appListView.font =  UIFont.systemFont(ofSize: 25)
+        appListView.textColor = .white
+        appListView.text = "LET'S CHECK THIS OUT"
         appListView.textAlignment = .center
+        appListView.backgroundColor = .systemBlue
         return appListView
     }()
     
@@ -44,7 +43,8 @@ class LoginView: UIView {
         let tableView = UITableView()
             tableView.translatesAutoresizingMaskIntoConstraints = false
             tableView.dequeueReusableCell(withIdentifier: "LoginViewCell")
-//        tableView.backgroundColor = .yellow
+            tableView.isScrollEnabled = false
+            tableView.backgroundColor = .systemBlue
         return tableView
     }()
     
@@ -58,7 +58,7 @@ class LoginView: UIView {
             make.bottom.equalToSuperview().offset(-25)
             make.leading.equalToSuperview().offset(25)
             make.trailing.equalToSuperview().offset(-25)
-            make.top.equalToSuperview().offset(200)
+            make.top.equalToSuperview().offset(100)
         }
         
         appListTitle.snp.makeConstraints { make in
@@ -72,7 +72,7 @@ class LoginView: UIView {
             make.bottom.equalToSuperview().offset(-25)
             make.leading.equalToSuperview().offset(25)
             make.trailing.equalToSuperview().offset(-25)
-            make.top.equalTo(appListTitle).offset(100)
+            make.top.equalTo(appListTitle).offset(75)
         }
     }
 }

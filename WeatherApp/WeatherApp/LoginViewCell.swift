@@ -22,9 +22,9 @@ class LoginViewCell: UITableViewCell {
  
     var textView: UITextView = {
         let textView = UITextView()
-        textView.backgroundColor = .blue
-        textView.frame = CGRect(x:50,y:50,width:40.0,height:50)
+        textView.frame = CGRect(x:50,y:50,width:40.0,height:100)
         textView.textAlignment = .center
+        textView.font =  UIFont.systemFont(ofSize: 25)
         return textView
     }()
 

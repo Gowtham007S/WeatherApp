@@ -13,7 +13,6 @@ class LoginViewController1: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-//        self.view.backgroundColor = .orange
         setUpContraints()
     }
     
@@ -29,8 +28,6 @@ class LoginViewController1: UIViewController {
  
     let loginTableView: UITableView = {
         let tableView = UITableView()
-//            tableView.backgroundColor = UIColor.red
-//            tableView.translatesAutoresizingMaskIntoConstraints = false
                return tableView
     }()
     
@@ -41,5 +38,6 @@ class LoginViewController1: UIViewController {
             make.bottom.equalToSuperview().offset(50)
             make.leading.equalToSuperview().offset(50)
             make.trailing.equalToSuperview().offset(50)
-        }    }
+        }
+    }
 }
